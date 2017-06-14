@@ -2,18 +2,15 @@ package MavenTest_JUnit;
 
 import org.junit.Test;
 
-import com.epam.tat.module4.Calculator;
 
-public class JUTgExceptions {
+public class JUTgExceptions extends InitializeCalculatorClass{
 
-	Calculator calculator = new Calculator();
-
-	@Test(expected = NumberFormatException.class)
+	@Test(expected = ArithmeticException.class)
 	public void testTgfor270() {
 		calculator.tg(Math.PI * 1.5);
 	}
 	
-	@Test(expected = NumberFormatException.class)
+	@Test(expected = ArithmeticException.class)
 	public void testTgfor90() {
 		calculator.tg(Math.PI / 2);
 	}

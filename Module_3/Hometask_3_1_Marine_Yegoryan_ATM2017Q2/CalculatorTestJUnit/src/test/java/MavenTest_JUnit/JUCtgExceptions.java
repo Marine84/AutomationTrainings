@@ -4,16 +4,14 @@ import org.junit.Test;
 
 import com.epam.tat.module4.Calculator;
 
-public class JUCtgExceptions {
+public class JUCtgExceptions extends InitializeCalculatorClass {
 
-	Calculator calculator = new Calculator();
-
-	@Test(expected = NumberFormatException.class)
+	@Test(expected = ArithmeticException.class)
 	public void testTgfor0() {
 		calculator.tg(0);
 	}
 
-	@Test(expected = NumberFormatException.class)
+	@Test(expected = ArithmeticException.class)
 	public void testTgfor180() {
 		calculator.tg(Math.PI / 1);
 	}

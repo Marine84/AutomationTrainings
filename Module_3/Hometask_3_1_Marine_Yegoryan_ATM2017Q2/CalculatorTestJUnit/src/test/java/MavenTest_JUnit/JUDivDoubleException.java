@@ -2,13 +2,10 @@ package MavenTest_JUnit;
 
 import org.junit.Test;
 
-import com.epam.tat.module4.Calculator;
 
-public class JUDivDoubleException {
-
-	Calculator calculator = new Calculator();
+public class JUDivDoubleException extends InitializeCalculatorClass{
 	
-	@Test(expected = NumberFormatException.class)
+	@Test(expected = ArithmeticException.class)
 	public void testDivbyZero() {
 		calculator.div(2.5, 0);
 		

@@ -1,12 +1,9 @@
 package MavenTest_JUnit;
 import static org.junit.Assert.*;
 import org.junit.Test;
-import com.epam.tat.module4.Calculator;
 
 
-public class JUDivDoubleTest {
-
-	Calculator calculator = new Calculator();
+public class JUDivDoubleTest extends InitializeCalculatorClass{
 	
 	@Test
 	public void testDiv() {

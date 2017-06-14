@@ -2,15 +2,11 @@ package MavenTest_JUnit;
 
 import org.junit.Test;
 
-import com.epam.tat.module4.Calculator;
 
-public class JUDivLongException {
-
-Calculator calculator = new Calculator();
+public class JUDivLongException extends InitializeCalculatorClass{
 	
-	@Test(expected = NumberFormatException.class)
+	@Test(expected = ArithmeticException.class)
 	public void testDivbyZero() {
 		calculator.div(5, 0);
-		
 	}	
 }
