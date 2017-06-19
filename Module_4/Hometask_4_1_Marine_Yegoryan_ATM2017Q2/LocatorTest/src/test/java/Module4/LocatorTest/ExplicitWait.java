@@ -1,4 +1,4 @@
-package Module3.LocatorTest;
+package Module4.LocatorTest;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

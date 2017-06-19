@@ -1,4 +1,4 @@
-package Module3.LocatorTest;
+package Module4.LocatorTest;
 
 import java.util.concurrent.TimeUnit;
 import org.testng.Assert;
@@ -49,7 +49,9 @@ public class Locator_EmailCreation extends ExplicitWait {
 		emailLogin();
 
 		// Create new email
+		clickWhenReady(("//*/div[text()='COMPOSE']"), 10000);
 		driver.findElement(By.xpath("//*/div[text()='COMPOSE']")).click();
+		clickWhenReady(("//textarea[@name='to']"), 10000);
 		driver.findElement(By.xpath("//textarea[@name='to']")).click();
 		driver.findElement(By.xpath("//textarea[@name='to']")).clear();
 
@@ -63,7 +65,9 @@ public class Locator_EmailCreation extends ExplicitWait {
 		driver.findElement(By.xpath("//div[@aria-label='Message Body']")).sendKeys("test");
 
 		// Save and close. Verify email has been saved in draft
+		clickWhenReady(("//img[@aria-label='Save & Close']"), 10000);
 		driver.findElement(By.xpath("//img[@aria-label='Save & Close']")).click();
+		clickWhenReady(("//a[contains(text(),'Drafts')]"), 10000);
 		driver.findElement(By.xpath("//a[contains(text(),'Drafts')]")).click();
 
 		// verify that email has been saved in draft
@@ -87,7 +91,7 @@ public class Locator_EmailCreation extends ExplicitWait {
 		checkElement = driver.findElement(By.xpath("//div[@aria-label='Message Body']"));
 		Assert.assertEquals("test", checkElement.getText());
 
-		clickWhenReady(("//a[contains(text(),'Drafts')]"), 10000);
+		clickWhenReady(("//a[contains(text(),'Drafts')]"), 5000);
 		driver.findElement(By.xpath("//div[text()='Send']")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Drafts')]")).click();
 

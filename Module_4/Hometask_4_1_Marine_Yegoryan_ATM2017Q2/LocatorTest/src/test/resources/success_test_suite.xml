@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="LocatorTest" verbose="1" parallel="false">
+
+	<test name="LocatorTest">
+		<classes>
+			<class name="Module4.LocatorTest.Locator_EmailCreation">
+				<methods>
+					<exclude name="emailLogin" />
+					<exclude name="createNewEmail" />
+					<include name="sendEmail" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
