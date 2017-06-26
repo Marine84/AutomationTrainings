@@ -9,25 +9,25 @@
 			</run>
 		</groups>
 		<classes>
-			<class name="MavenTest.CosTest" />
-			<class name="MavenTest.CtgTest" />
-			<class name="MavenTest.CtgTestException" />
-			<class name="MavenTest.DivDoubleTest" />
-			<class name="MavenTest.DivDoubleTestException" />
-			<class name="MavenTest.DivLongTest" />
-			<class name="MavenTest.DivLongTestException" />
-			<class name="MavenTest.IsNegativeTest" />
-			<class name="MavenTest.IsPositiveTest" />
-			<class name="MavenTest.MultiplyDoubleTest" />
-			<class name="MavenTest.MultiplyTest" />
-			<class name="MavenTest.PowTest" />
-			<class name="MavenTest.SinTest" />
-			<class name="MavenTest.SubDoubleTest" />
-			<class name="MavenTest.SubLongTest" />
-			<class name="MavenTest.SumDoubleTest" />
-			<class name="MavenTest.SumLongTest" />
-			<class name="MavenTest.TgTest" />
-			<class name="MavenTest.TgTestException" />
+			<class name="testng_tests.CosTest" />
+			<class name="testng_tests.CtgTest" />
+			<class name="testng_tests.CtgTestException" />
+			<class name="testng_tests.DivDoubleTest" />
+			<class name="testng_tests.DivDoubleTestException" />
+			<class name="testng_tests.DivLongTest" />
+			<class name="testng_tests.DivLongTestException" />
+			<class name="testng_tests.IsNegativeTest" />
+			<class name="testng_tests.IsPositiveTest" />
+			<class name="testng_tests.MultiplyDoubleTest" />
+			<class name="testng_tests.MultiplyTest" />
+			<class name="testng_tests.PowTest" />
+			<class name="testng_tests.SinTest" />
+			<class name="testng_tests.SubDoubleTest" />
+			<class name="testng_tests.SubLongTest" />
+			<class name="testng_tests.SumDoubleTest" />
+			<class name="testng_tests.SumLongTest" />
+			<class name="testng_tests.TgTest" />
+			<class name="testng_tests.TgTestException" />
 		</classes>
 	</test>
 </suite> 
