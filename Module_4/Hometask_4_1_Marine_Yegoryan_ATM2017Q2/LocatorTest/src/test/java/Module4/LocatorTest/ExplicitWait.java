@@ -8,14 +8,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ExplicitWait {
 
-	public WebDriver driver;
+	//public WebDriver driver;
 	
-	public void clickWhenReady(String locator, int timeout) {
+	public void waitUntilClickable(WebDriver driver, String locator, int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 	}
 
-	public void clickWhenVisible(WebElement element, int timeout) {
+	public void clickWhenVisible(WebDriver driver, WebElement element, int timeout) {
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		wait.until(ExpectedConditions.visibilityOf(element));
 	}

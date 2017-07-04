@@ -8,15 +8,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class Locator_EmailCreation extends ExplicitWait {
+public class Locator_EmailCreation{
 	private String baseUrl;
+	ExplicitWait waitExplicit = new ExplicitWait();
+//	private WebDriver driver = waitExplicit.driver;
+	
+	public WebDriver driver;
 
 	@BeforeClass(alwaysRun = true)
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
 		baseUrl = "https://gmail.com/";
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
-		driver.get(baseUrl + "/");
+		driver.get(baseUrl);
 	}
 
 	// Login into the mailbox and assert that login is successful
@@ -35,23 +39,23 @@ public class Locator_EmailCreation extends ExplicitWait {
 				.visibilityOfElementLocated(By.xpath("//*[@id='password']//input[@type='password']")));
 		driver.findElement(By.xpath("//*[@id='password']//input[@type='password']")).clear();
 		driver.findElement(By.xpath("//*[@id='password']//input[@type='password']")).sendKeys("marinetest");
-		clickWhenReady("//*[@id='passwordNext']", 10000);
+		waitExplicit.waitUntilClickable(driver, "//*[@id='passwordNext']", 100000);
 		driver.findElement(By.id("passwordNext")).click();
 
 		// Verify, that the login is successful
 		WebElement elementGmail = driver.findElement(By.xpath("//div[@aria-label='Navigate to']/span[text()='Gmail']"));
-		clickWhenVisible(elementGmail, 10000);
+		waitExplicit.clickWhenVisible(driver, elementGmail, 10000);
 		Assert.assertEquals("Gmail", elementGmail.getText());
 	}
 
-	@Test
+	@Test (dependsOnMethods="emailLogin")
 	public void createNewEmail() {		
-		emailLogin();
+		//emailLogin();
 
 		// Create new email
-		clickWhenReady(("//*/div[text()='COMPOSE']"), 10000);
+		waitExplicit.waitUntilClickable(driver,("//*/div[text()='COMPOSE']"), 10000);
 		driver.findElement(By.xpath("//*/div[text()='COMPOSE']")).click();
-		clickWhenReady(("//textarea[@name='to']"), 10000);
+		waitExplicit.waitUntilClickable(driver,("//textarea[@name='to']"), 10000);
 		driver.findElement(By.xpath("//textarea[@name='to']")).click();
 		driver.findElement(By.xpath("//textarea[@name='to']")).clear();
 
@@ -65,9 +69,9 @@ public class Locator_EmailCreation extends ExplicitWait {
 		driver.findElement(By.xpath("//div[@aria-label='Message Body']")).sendKeys("test");
 
 		// Save and close. Verify email has been saved in draft
-		clickWhenReady(("//img[@aria-label='Save & Close']"), 10000);
+		waitExplicit.waitUntilClickable(driver,("//img[@aria-label='Save & Close']"), 10000);
 		driver.findElement(By.xpath("//img[@aria-label='Save & Close']")).click();
-		clickWhenReady(("//a[contains(text(),'Drafts')]"), 10000);
+		waitExplicit.waitUntilClickable(driver, ("//a[contains(text(),'Drafts')]"), 10000);
 		driver.findElement(By.xpath("//a[contains(text(),'Drafts')]")).click();
 
 		// verify that email has been saved in draft
@@ -75,23 +79,23 @@ public class Locator_EmailCreation extends ExplicitWait {
 		Assert.assertEquals("Locator test", elementSubject.getText());
 	}
 
-	@Test
+	@Test (dependsOnMethods="createNewEmail")
 	public void sendEmail() {
-		createNewEmail();
+		//createNewEmail();
 
 		// Send saved email
-		clickWhenReady(("//span[text()='Locator test']"), 10000);
+		waitExplicit.waitUntilClickable(driver, ("//span[text()='Locator test']"), 10000);
 		driver.findElement(By.xpath("//span[text()='Locator test']")).click();
 
 		// verify address and content of email
 		WebElement checkElement = driver
 				.findElement(By.xpath("//span[@email='marineyegoryan0884@gmail.com' and text()='Marine Yegoryan']"));
-		clickWhenVisible(checkElement, 10000);
+		waitExplicit.clickWhenVisible(driver, checkElement, 10000);
 		Assert.assertEquals("Marine Yegoryan", checkElement.getText());
 		checkElement = driver.findElement(By.xpath("//div[@aria-label='Message Body']"));
 		Assert.assertEquals("test", checkElement.getText());
 
-		clickWhenReady(("//a[contains(text(),'Drafts')]"), 5000);
+		waitExplicit.waitUntilClickable(driver, ("//a[contains(text(),'Drafts')]"), 5000);
 		driver.findElement(By.xpath("//div[text()='Send']")).click();
 		driver.findElement(By.xpath("//a[contains(text(),'Drafts')]")).click();
 
@@ -99,7 +103,7 @@ public class Locator_EmailCreation extends ExplicitWait {
 		checkElement = driver.findElement(By.xpath("//td[@class='TC']"));
 		Assert.assertNotEquals("Locator test", checkElement.getText());
 
-		clickWhenReady(("//a[contains(text(),'Sent Mail')]"), 10000);
+		waitExplicit.waitUntilClickable(driver, ("//a[contains(text(),'Sent Mail')]"), 10000);
 		driver.findElement(By.xpath("//a[contains(text(),'Sent Mail')]")).click();
 
 		// verify that email is in sent mail box

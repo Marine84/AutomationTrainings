@@ -9,16 +9,16 @@ public class MailBoxTest extends InputOutputInitialization {
 
 //	private String baseUrl;
 	
-	@Test
-	@Parameters("baseUrl")
-	public void emailCreationTest(String baseUrl) {
-		baseUrl = "https://gmail.com/";
-		new InputUsername(driver).open(baseUrl).inputUserName("marineyegoryan0884").goNext().inputPassword("marinetest").goNext();
-		new MailBox(driver).emailCreation();
-		// verify that email has been saved in draft
-		MailBox mailbox = new MailBox(driver);
-		Assert.assertEquals("Locator test", mailbox.draftSavedEmailLink.getText());
-	}
+//	@Test
+//	@Parameters("baseUrl")
+//	public void emailCreationTest(String baseUrl) {
+//		baseUrl = "https://gmail.com/";
+//		new InputUsername(driver).open(baseUrl).inputUserName("marineyegoryan0884").goNext().inputPassword("marinetest").goNext();
+//		new MailBox(driver).emailCreation();
+//		// verify that email has been saved in draft
+//		MailBox mailbox = new MailBox(driver);
+//		Assert.assertEquals("Locator test", mailbox.draftSavedEmailLink.getText());
+//	}
 	
 	@Test
 	@Parameters("baseUrl")
