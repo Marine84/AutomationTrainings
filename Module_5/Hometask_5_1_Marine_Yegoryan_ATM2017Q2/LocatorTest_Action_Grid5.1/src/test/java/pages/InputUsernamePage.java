@@ -17,10 +17,10 @@ public class InputUsernamePage extends AbstractPage {
 		return this;
 	}
 
-	public InputUsernamePage inputUserName(User user){
+	public InputUsernamePage inputUserName(String userName){
 		inputUsernameBox.click();
 		inputUsernameBox.clear();
-		inputUsernameBox.sendKeys(user.getUsername());
+		inputUsernameBox.sendKeys(userName);
 		return this;
 	}
 	

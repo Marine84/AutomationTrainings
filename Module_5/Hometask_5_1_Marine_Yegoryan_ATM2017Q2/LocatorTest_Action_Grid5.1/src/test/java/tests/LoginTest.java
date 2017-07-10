@@ -10,11 +10,13 @@ import org.testng.annotations.*;
 
 public class LoginTest extends AbstractPage {
 
+    User user = new User("marineyegoryan0884","marinetest");
+
     @BeforeTest()
     @Parameters("baseUrl")
     public void loginTest(String baseUrl) {
-        InputPasswordPage emailLogin = new InputUsernamePage().open(baseUrl).inputUserName(new User("marineyegoryan0884")).goNext()
-                .inputPassword(new User("marinetest")).goNext();
+        InputPasswordPage emailLogin = new InputUsernamePage().open(baseUrl).inputUserName(user.getUsername()).goNext()
+                .inputPassword(user.getPassword()).goNext();
         // Verify, that the login is successful
         Assert.assertEquals("Gmail", driver.findElement(By.xpath("//div[@aria-label='Navigate to']/span[text()='Gmail']")).getText());
     }

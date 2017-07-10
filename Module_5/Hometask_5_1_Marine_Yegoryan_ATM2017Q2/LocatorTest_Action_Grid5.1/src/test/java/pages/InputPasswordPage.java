@@ -19,10 +19,10 @@ public class InputPasswordPage extends AbstractPage {
 	WebElement signOutIcon;
 
 	// implementation of password filling
-	public InputPasswordPage inputPassword(User user) {
+	public InputPasswordPage inputPassword(String pass) {
 		waitForElementVisible(inputPassBox);
 		inputPassBox.clear();
-		inputPassBox.sendKeys(user.getUsername());
+		inputPassBox.sendKeys(pass);
 		return this;
 	}
 
