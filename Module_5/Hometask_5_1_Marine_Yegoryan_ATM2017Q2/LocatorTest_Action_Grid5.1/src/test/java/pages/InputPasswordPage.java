@@ -22,7 +22,7 @@ public class InputPasswordPage extends AbstractPage {
 	public InputPasswordPage inputPassword(User user) {
 		waitForElementVisible(inputPassBox);
 		inputPassBox.clear();
-		inputPassBox.sendKeys(user.getPassword());
+		inputPassBox.sendKeys(user.getUsername());
 		return this;
 	}
 

@@ -1,1 +1,1 @@
-java -Dwebdriver.chrome.driver="..\chromedriver_win64\chromedriver.exe" -jar selenium-server-standalone-3.4.0.jar -role node -browser browserName=chrome -hub http://127.0.0.1:4444/grid/register
+java -Dwebdriver.chrome.driver="..\src\test\resources\grid_config\chromedriver_linux64\chromedriver.exe" -jar selenium-server-standalone-3.4.0.jar -role node -browser browserName=chrome -hub http://127.0.0.1:4444/grid/register

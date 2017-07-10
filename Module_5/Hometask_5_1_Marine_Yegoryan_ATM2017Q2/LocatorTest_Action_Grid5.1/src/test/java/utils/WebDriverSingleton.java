@@ -16,7 +16,8 @@ public class WebDriverSingleton {
         if (driver != null) {
             return driver;
         }
-        return driver = setUp();
+        driver = setUp();
+        return driver;
     }
 
     public static WebDriver setUp() {

@@ -1,13 +1,11 @@
 package business_objects;
 
 public class User {
-    private static final String USERNAME = "marineyegoryan0884";
-    private static final String PASSWORD = "marinetest";
-
-    public String getUsername(){
-       return USERNAME;
+    private String user;
+    public User(String user){
+        this.user = user;
     }
-    public String getPassword(){
-        return PASSWORD;
+    public String getUsername(){
+       return user;
     }
 }
