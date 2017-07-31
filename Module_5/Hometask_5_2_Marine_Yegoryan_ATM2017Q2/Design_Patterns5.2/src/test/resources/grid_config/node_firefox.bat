@@ -1,0 +1,1 @@
+java -Dwebdriver.firefox.driver="..\src\test\resources\grid_config\geckodriver-v0.16.1-win64\geckodriver.exe" -jar selenium-server-standalone-3.4.0.jar -role node -browser browserName=firefox -hub http://127.0.0.1:4444/grid/register
