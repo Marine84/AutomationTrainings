@@ -27,7 +27,4 @@ public class InputUsernamePage extends AbstractPage {
 		nextButton.click();
 		return new InputPasswordPage();
 	}
-	
-
-
 }

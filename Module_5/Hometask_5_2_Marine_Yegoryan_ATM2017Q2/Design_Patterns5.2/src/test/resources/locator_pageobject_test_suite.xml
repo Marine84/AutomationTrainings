@@ -14,6 +14,16 @@
 					<include name="emailSendingTest" />
 				</methods>
 			</class>
+			<class name="tests.LoginTest">
+				<methods>
+					<include name="userLoginTest" />
+				</methods>
+			</class>
+			<class name="tests.LogOutTest">
+				<methods>
+					<include name="userLogoutTest" />
+				</methods>
+			</class>
 		</classes>
 	</test>
 </suite> 

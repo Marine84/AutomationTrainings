@@ -1,20 +1,20 @@
 package tests;
 
-import org.openqa.selenium.WebDriver;
-import pages.DraftBoxPage;
-import pages.MailBoxPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import pages.MailBoxPage;
 import org.testng.annotations.Test;
-import utils.WebDriverSingleton;
 
-public class EmailCreationTest extends LoginTest{
+import static pages.AbstractPage.uniqueStack;
+
+public class EmailCreationTest extends BaseTests {
 	@Test
 	public void emailCreationTest() {
-		new MailBoxPage().emailCreation();
-		// verify that email has been saved in draft
 		MailBoxPage mailbox = new MailBoxPage();
-		//WebDriver driver = WebDriverSingleton.getWebDriverInstance();
-//		Assert.assertEquals("(Locator test).*", driver.findElement(By.xpath("//span[text()='Locator test']")).getText());
+		mailbox.emailCreation();
+		// verify that email has been saved in draft
+		WebElement emailLink = driver.findElement(By.xpath("//span[contains(text(), '"+uniqueStack+"')]"));
+		Assert.assertEquals(uniqueStack, emailLink.getText());
 	}
 }

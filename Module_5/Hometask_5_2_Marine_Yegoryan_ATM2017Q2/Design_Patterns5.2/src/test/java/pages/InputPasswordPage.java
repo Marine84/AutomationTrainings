@@ -28,6 +28,7 @@ public class InputPasswordPage extends AbstractPage {
 	public InputPasswordPage goNext() {
 		waitForElementClick(passNextButton);
 		passNextButton.click();
+		waitForPageLoad("Inbox");
 		return this;
 	}
 

@@ -44,7 +44,7 @@ public class MailBoxPage extends AbstractPage {
     @FindBy(xpath = "//div[text()='New Message']")
     WebElement newMessageTxt;
 
-    public MailBoxPage emailCreation() {
+    public InboxBoxPage emailCreation() {
         waitForPageLoad("Inbox");
         createEmail.click();
         waitForElementVisible(newMessageTxt);
@@ -64,6 +64,6 @@ public class MailBoxPage extends AbstractPage {
         // Save and close. Verify email has been saved in draft
         saveAndCloseButton.click();
         waitForPageLoad("Inbox");
-        return this;
+        return new InboxBoxPage();
     }
 }
