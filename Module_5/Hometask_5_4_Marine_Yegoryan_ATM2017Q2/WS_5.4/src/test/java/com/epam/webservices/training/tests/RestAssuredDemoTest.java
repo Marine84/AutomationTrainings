@@ -9,39 +9,34 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import io.restassured.response.Response;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 public class RestAssuredDemoTest extends RestAssuredDemoBase {
 
     //Training implementation
-    @Test
+    @Test (priority = 1)
     public void checkStatusCode2() {
         Response rp = given().get("/posts").andReturn();
         int actualStatusCode = rp.getStatusCode();
-        System.out.println(actualStatusCode);
+        System.out.println("Test1: Status Code is equal to " + actualStatusCode);
         Assert.assertEquals(actualStatusCode, 200);
     }
 
-    @Test
+    @Test (priority = 2)
     public void checkResponseHeader() {
         Response rp = given().get("/posts").andReturn();
         String valueOfContentTypeHeader = rp.getHeader("content-type");
+        System.out.println("Test2: Content-type is equal to " + rp.getHeader("content-type"));
         Assert.assertTrue(valueOfContentTypeHeader.contains("application/json"));
     }
 
-    @Test
+    @Test(priority = 3)
     public void checkResponseBody() {
         Response rp = given().get("/posts").andReturn();
         Post[] posts = rp.as(Post[].class);
-        System.out.println(posts.length);
+        System.out.println("Test3: Body length is equal to " + posts.length);
         Assert.assertEquals(posts.length, 100);
     }
 
-    @Test
+    @Test (priority = 4)
     public void checkFirstResponseUserID() {
         Response rp = given().get("/posts").andReturn();
         Post[] posts = rp.as(Post[].class);
@@ -50,12 +45,14 @@ public class RestAssuredDemoTest extends RestAssuredDemoBase {
 
         // this part of code just for me bzbzum ei vor mi qich jokei ed post[] classy iranic incha nerkaytacnum :-)
         Post[] myList = new Post[100];
+        System.out.println("Test4:");
         int j = 0;
         for (int i = 0; i < myList.length; i++) {
             if (posts[i].getUserId().equals(2))
             {
                 //Find and print all response USER_IDs, where it is equal to 2
                 myList[j] = posts[i];
+
                 System.out.println("response ID = " + i + ";   Response UserId = " + myList[j].getUserId().toString());
                 j++;
                 //Assert that UserID for 10 - 20 responses are equal to "2"
