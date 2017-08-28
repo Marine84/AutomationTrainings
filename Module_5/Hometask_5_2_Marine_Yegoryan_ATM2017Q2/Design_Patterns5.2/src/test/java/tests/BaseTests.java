@@ -1,11 +1,11 @@
 package tests;
 
-import businessobjects_Builder.User;
+import builder.User;
 import org.openqa.selenium.WebDriver;
 import pages.InputPasswordPage;
 import pages.InputUsernamePage;
 import org.testng.annotations.*;
-import utils.WebDriverSingleton;
+import singleton.WebDriverSingleton;
 
 public class BaseTests {
     WebDriver driver = WebDriverSingleton.getWebDriverInstance();

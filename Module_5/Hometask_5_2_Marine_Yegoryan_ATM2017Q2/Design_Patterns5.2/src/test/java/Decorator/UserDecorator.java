@@ -1,22 +1,24 @@
 package decorator;
 
-import businessobjects_Builder.User;
+import builder.User;
 import org.testng.Reporter;
 
 public class UserDecorator extends User {
-    public UserDecorator(String user, String pass) {
-        super(user, pass);
+
+    private User user;
+    public UserDecorator(User user) {
+       this.user = user;
     }
 
     @Override
     public String getUsername() {
         Reporter.log("User is successfully found", super.getUsername() != null);
-        return super.getUsername();
+        return user.getUsername();
     }
 
     @Override
     public String getPassword() {
         Reporter.log("User is successfully found", super.getPassword() != null);
-        return super.getPassword();
+        return user.getPassword();
     }
 }

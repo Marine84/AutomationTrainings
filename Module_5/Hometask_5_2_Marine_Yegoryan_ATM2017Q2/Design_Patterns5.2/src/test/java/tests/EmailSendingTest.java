@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.InboxBoxPage;
 import pages.MailBoxPage;
-import utils.WebDriverSingleton;
+import singleton.WebDriverSingleton;
 
 import static pages.AbstractPage.uniqueStack;
 

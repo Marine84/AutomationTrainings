@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import utils.WebDriverSingleton;
+import singleton.WebDriverSingleton;
 
 public abstract class AbstractPage{
 	protected WebDriver driver;
