@@ -1,12 +1,14 @@
 package builder;
 
 public class User {
-    private final String userName;
-    private final String pass;
-    private User user;
+    private  String userName;
+    private  String pass;
 
     //Constructor for Decorator pattern usage
     public User() {
+    }
+
+    public User(User user) {
         this.userName = user.getUsername();
         this.pass = user.getPassword();
     }
