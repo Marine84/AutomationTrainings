@@ -1,23 +1,11 @@
 package builder;
 
-public class User {
-    private  String userName;
-    private  String pass;
 
-    //Constructor for Decorator pattern usage
-    public User() {
-    }
+import user.IUser;
 
-    public User(User user) {
-        this.userName = user.getUsername();
-        this.pass = user.getPassword();
-    }
-
-    //Constructor for Builder pattern usage
-    private User(UserBuilder builder) {
-        this.userName = builder.userName;
-        this.pass = builder.pass;
-    }
+public class User implements IUser {
+    private String userName;
+    private String pass;
 
     public String getUsername() {
         return userName;
@@ -27,8 +15,14 @@ public class User {
         return pass;
     }
 
+    //Constructor for Builder pattern usage
+    private User(UserBuilder builder) {
+        this.userName = builder.userName;
+        this.pass = builder.pass;
+    }
+
     // Nested class has created to perform Builder pattern method
-    private static class UserBuilder {
+    public static class UserBuilder {
         private  String userName;
         private  String pass;
         private  String address;

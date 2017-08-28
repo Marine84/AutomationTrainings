@@ -2,8 +2,9 @@ package decorator;
 
 import builder.User;
 import org.testng.Reporter;
+import user.IUser;
 
-public class UserDecorator extends User {
+public class UserDecorator implements IUser {
 
     private User user;
     public UserDecorator(User user) {
@@ -12,13 +13,17 @@ public class UserDecorator extends User {
 
     @Override
     public String getUsername() {
-        Reporter.log("User is successfully found", super.getUsername() != null);
+        Reporter.log("User is successfully found", user.getUsername() != null);
         return user.getUsername();
     }
 
     @Override
     public String getPassword() {
-        Reporter.log("User is successfully found", super.getPassword() != null);
+        Reporter.log("User is successfully found", user.getPassword() != null);
         return user.getPassword();
+    }
+
+    public void f(){
+
     }
 }

@@ -1,6 +1,7 @@
 package tests;
 
 import builder.User;
+import decorator.UserDecorator;
 import org.openqa.selenium.WebDriver;
 import pages.InputPasswordPage;
 import pages.InputUsernamePage;
@@ -12,9 +13,6 @@ public class BaseTests {
     //   UserName and Pass are used either via decorator or build patterns
     //   Get username and Pass via Build pattern
     User user = new User.UserBuilder("marineyegoryan0884", "marinetest").build();
-
-    //  Get username and Pass via Decorator pattern
-    //   public UserDecorator user = new UserDecorator("marineyegoryan0884", "marinetest");
 
     @BeforeTest()
     @Parameters("baseUrl")
