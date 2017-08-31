@@ -54,14 +54,6 @@
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.myproject.plugins</groupId>
-					<artifactId>my-cool-maven-plugin</artifactId>
-					<version>1.0</version>
-					<configuration>
-						<deploymentDirectory>${application-home}/deploy</deploymentDirectory>
-					</configuration>
-				</plugin>
-				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.20</version>

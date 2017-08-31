@@ -1,6 +1,6 @@
 Feature: Email creation
 
-@smokeTest
+
 Scenario: Email sending test
 Given user created email
 When  open created email

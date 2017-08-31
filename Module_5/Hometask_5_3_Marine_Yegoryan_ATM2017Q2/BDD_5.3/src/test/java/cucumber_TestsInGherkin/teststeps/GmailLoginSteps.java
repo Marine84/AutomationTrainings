@@ -1,6 +1,5 @@
-package cucumber_TestsInGherkin.steps;
+package cucumber_TestsInGherkin.teststeps;
 
-import businessobjects_Builder.User;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -16,8 +15,8 @@ public class GmailLoginSteps {
     private static final String BASE_URL = "https://gmail.com/";
 
     WebDriver driver = WebDriverSingleton.getWebDriverInstance();
-    User user = new User.UserBuilder("marineyegoryan0884", "marinetest").build();
     InputUsernamePage emailLogin = new InputUsernamePage();
+    InputPasswordPage emailPass = new InputPasswordPage();
 
     @Given("^user navigates to gmail home page$")
     public void navigate_to_home_page(){
@@ -30,14 +29,15 @@ public class GmailLoginSteps {
         Assert.assertTrue(driver.getTitle().contains("Gmail"));
     }
 
-    @And("^enters user credentials and submits login form$")
-    public void enter_user_credentials() {
-        emailLogin.inputUserName(user.getUsername()).goNext().inputPassword(user.getPassword()).goNext();
+    @And("^enter user credentials \"(.*)\" and \"(.*)\" to submit login form$")
+    public void enter_user_credentials(String username, String password) {
+        emailLogin.inputUserName(username).goNext().inputPassword(password).goNext();
     }
 
     @Then("^gmail home page is displayed$")
     public void verify_login_is_completed() {
         Assert.assertTrue(driver.getTitle().contains("Inbox"));
         System.out.println("Login was completed correctly.");
+        emailPass.signOff();
     }
 }

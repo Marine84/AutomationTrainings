@@ -1,6 +1,6 @@
 package tests;
 
-import businessobjects_Builder.User;
+import builder.User;
 import org.openqa.selenium.WebDriver;
 import pages.InputPasswordPage;
 import pages.InputUsernamePage;

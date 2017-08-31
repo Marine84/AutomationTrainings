@@ -1,4 +1,4 @@
-package businessobjects_Builder;
+package builder;
 
 public class User {
     private final String userName;

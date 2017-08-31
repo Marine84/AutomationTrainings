@@ -1,6 +1,6 @@
-package cucumber_TestsInGherkin.steps;
+package cucumber_TestsInGherkin.teststeps;
 
-import businessobjects_Builder.User;
+import builder.User;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;

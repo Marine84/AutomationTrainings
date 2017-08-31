@@ -1,6 +1,6 @@
 package decorator;
 
-import businessobjects_Builder.User;
+import builder.User;
 import org.testng.Reporter;
 
 public class UserDecorator extends User {

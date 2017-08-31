@@ -5,7 +5,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.WebDriver;
 import utils.WebDriverSingleton;
 
-@CucumberOptions( /*tags="@smokeTest",*/ features = "./src/test/resources/features/f2")
+@CucumberOptions(features = "./src/test/resources/features/f2", glue="cucumber_TestsInGherkin.teststeps")
 public class EmailCreationCucumberTest extends AbstractTestNGCucumberTests {
-    WebDriver driver = WebDriverSingleton.getWebDriverInstance();
+
 }
