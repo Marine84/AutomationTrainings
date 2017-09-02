@@ -6,6 +6,7 @@ import user.IUser;
 public class User implements IUser {
     private String userName;
     private String pass;
+    private String address;
 
     public String getUsername() {
         return userName;
@@ -15,10 +16,15 @@ public class User implements IUser {
         return pass;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
     //Constructor for Builder pattern usage
     private User(UserBuilder builder) {
         this.userName = builder.userName;
         this.pass = builder.pass;
+        this.address = builder.address;
     }
 
     // Nested class has created to perform Builder pattern method
@@ -32,8 +38,9 @@ public class User implements IUser {
             this.pass = pass;
         }
 
-        public UserBuilder (String address){
+        public UserBuilder setAddress(String address){
             this.address = address;
+            return this;
         }
 
         public User build() {

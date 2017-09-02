@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 public class Logging {
 
     //creation and retrieval methods
-    private static Logger myLogger = Logger.getLogger(Logging.class);
+    private static Logger myLogger = Logger.getLogger("Logging test");
 
     //printing methods of Info Logger
     public static void infoLogger() {

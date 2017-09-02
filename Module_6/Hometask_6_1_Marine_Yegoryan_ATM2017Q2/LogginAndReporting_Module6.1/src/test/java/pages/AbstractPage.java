@@ -43,7 +43,6 @@ public abstract class AbstractPage{
 
 	public WebElement drawInRedElement(WebElement webElement) {
 		this.driver = WebDriverSingleton.getWebDriverInstance();
-		//WebElement elem = driver.findElement(by);
 		// draw a border around the found element
 		if (driver instanceof JavascriptExecutor) {
 			((JavascriptExecutor)driver).executeScript("arguments[0].style.border='3px solid red'", webElement);

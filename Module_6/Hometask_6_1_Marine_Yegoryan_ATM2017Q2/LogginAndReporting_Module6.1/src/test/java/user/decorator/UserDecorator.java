@@ -13,13 +13,13 @@ public class UserDecorator implements IUser {
 
     @Override
     public String getUsername() {
-        Reporter.log("User is successfully found", user.getUsername() != null);
+        Reporter.log("UserName is successfully found", user.getUsername() != null);
         return user.getUsername();
     }
 
     @Override
     public String getPassword() {
-        Reporter.log("User is successfully found", user.getPassword() != null);
+        Reporter.log("Password is successfully found", user.getPassword() != null);
         return user.getPassword();
     }
 }

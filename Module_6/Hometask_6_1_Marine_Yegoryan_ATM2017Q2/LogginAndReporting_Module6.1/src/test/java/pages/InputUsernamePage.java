@@ -15,12 +15,13 @@ public class InputUsernamePage extends AbstractPage {
 
 	public InputUsernamePage open(String baseUrl) {
 		driver.get(baseUrl);
+		Screenshoter.deleteOldScreenshots();
 		return this;
 	}
 
 	public InputUsernamePage inputUserName(String userName){
 		inputUsernameBox.click();
-		//drawInRedElement(By.id("identifierId"));
+		drawInRedElement(inputUsernameBox);
 		inputUsernameBox.clear();
 		inputUsernameBox.sendKeys(userName);
 		return this;

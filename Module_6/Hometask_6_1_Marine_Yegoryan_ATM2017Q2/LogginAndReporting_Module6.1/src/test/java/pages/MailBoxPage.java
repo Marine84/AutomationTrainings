@@ -35,23 +35,40 @@ public class MailBoxPage extends AbstractPage {
     @FindBy(xpath = "//div[text()='New Message']")
     WebElement newMessageTxt;
 
-    public InboxBoxPage emailCreation() {
+    public MailBoxPage clickComposeButton() {
         waitForPageLoad("Inbox");
         createEmail.click();
+        return this;
+    }
+
+    public MailBoxPage inputEmailAddress(String emailAddress) {
         waitForElementVisible(newMessageTxt);
         textInputTo.click();
         textInputTo.clear();
-        JavascriptExecutor executor = (JavascriptExecutor)driver;
-        executor.executeScript("arguments[0].value='marineyegoryan0884@gmail.com';", textInputTo);
+        JavascriptExecutor executor = (JavascriptExecutor) driver;
+        executor.executeScript(emailAddress, textInputTo);
+        //"arguments[0].value='marineyegoryan0884@gmail.com';"
+        return this;
+    }
+
+    public MailBoxPage inputEmailSubject() {
         textInputSubject.click();
         textInputSubject.clear();
         textInputSubject.sendKeys(uniqueStack);
+        return this;
+    }
+
+    public MailBoxPage inputEmailBody(String bodyText) {
         // Perform Action with keyboeard. type body from keyboard
         Actions keyPress = new Actions(driver);
         keyPress.moveToElement(textInputBody)
                 .click()
                 .keyDown(textInputBody, Keys.SHIFT)
-                .sendKeys(textInputBody, "test").perform();
+                .sendKeys(textInputBody, bodyText).perform();
+        return this;
+    }
+
+    public InboxBoxPage saveAndCloseEmail() {
         // Save and close. Verify email has been saved in draft
         saveAndCloseButton.click();
         waitForPageLoad("Inbox");
