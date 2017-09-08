@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="GmailTest" verbose="1" parallel="false">
+	<listeners>
+		<listener class-name="listeners.TestNGListeners" />
+	</listeners>
+	<test name="LoggingTest">
+		<parameter name="baseUrl" value="https://gmail.com/" />
+		<parameter name="browserType" value="chrome" />
+		<classes>
+			<class name="tests.EmailCreationTest">
+				<methods>
+					<exclude name="emailCreationTest" />
+				</methods>
+			</class>
+			<class name="tests.EmailSendingTest">
+				<methods>
+					<include name="emailSendingTest" />
+				</methods>
+			</class>
+			<class name="tests.LoginTest">
+				<methods>
+					<include name="userLoginTest" />
+				</methods>
+			</class>
+			<class name="tests.LogOutTest">
+				<methods>
+					<include name="userLogoutTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite> 
